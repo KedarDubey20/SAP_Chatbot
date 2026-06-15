@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  sap-ai-assistant:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_SQLITE_MEMORY=true
+    volumes:
+      - ../data:/app/data
+    restart: unless-stopped
